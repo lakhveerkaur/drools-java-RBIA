@@ -1,0 +1,17 @@
+package rules
+
+import com.javainuse.model.Podetails
+
+rule " Start Booking"
+	when 
+		productObject: Podetails(po_id != null, po_id : po_id)
+	then
+		productObject.vendorDetail(po_id);
+	end
+rule " Start Allocating PC"
+	when 
+		obj: Podetails(po_id != null,po_id : po_id)
+	then
+		obj.allocationDetail(po_id);
+	end
+
